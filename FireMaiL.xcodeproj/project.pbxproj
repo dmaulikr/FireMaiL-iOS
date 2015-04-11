@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4170C771AD9A1EA009C8BE8 /* FMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E4170C761AD9A1EA009C8BE8 /* FMUser.m */; };
 		E4AC97861AD9978E00E923C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AC97851AD9978E00E923C3 /* main.m */; };
 		E4AC97891AD9978E00E923C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AC97881AD9978E00E923C3 /* AppDelegate.m */; };
 		E4AC978C1AD9978E00E923C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AC978B1AD9978E00E923C3 /* ViewController.m */; };
@@ -30,6 +31,10 @@
 		E4AC97C61AD99BB500E923C3 /* FMLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AC97C51AD99BB500E923C3 /* FMLoginController.m */; };
 		E4AC97C91AD99CB000E923C3 /* FMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AC97C81AD99CB000E923C3 /* FMMainViewController.m */; };
 		E4AC97CC1AD99CC700E923C3 /* FMMailCard.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AC97CB1AD99CC700E923C3 /* FMMailCard.m */; };
+		E4C6BC721AD9B5E8005CB712 /* FMCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C6BC711AD9B5E8005CB712 /* FMCommunicator.m */; };
+		E4C6BC751AD9B5FD005CB712 /* FMDataBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C6BC741AD9B5FD005CB712 /* FMDataBuilder.m */; };
+		E4C6BC781AD9B60C005CB712 /* FMEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C6BC771AD9B60C005CB712 /* FMEmail.m */; };
+		E4C6BC7A1AD9BCD6005CB712 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E4C6BC791AD9BCD6005CB712 /* GooglePlus.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E4170C751AD9A1EA009C8BE8 /* FMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMUser.h; sourceTree = "<group>"; };
+		E4170C761AD9A1EA009C8BE8 /* FMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMUser.m; sourceTree = "<group>"; };
 		E4AC97801AD9978E00E923C3 /* FireMaiL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireMaiL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4AC97841AD9978E00E923C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4AC97851AD9978E00E923C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -76,6 +83,13 @@
 		E4AC97C81AD99CB000E923C3 /* FMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMainViewController.m; sourceTree = "<group>"; };
 		E4AC97CA1AD99CC700E923C3 /* FMMailCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMailCard.h; sourceTree = "<group>"; };
 		E4AC97CB1AD99CC700E923C3 /* FMMailCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMailCard.m; sourceTree = "<group>"; };
+		E4C6BC701AD9B5E8005CB712 /* FMCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMCommunicator.h; sourceTree = "<group>"; };
+		E4C6BC711AD9B5E8005CB712 /* FMCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMCommunicator.m; sourceTree = "<group>"; };
+		E4C6BC731AD9B5FD005CB712 /* FMDataBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDataBuilder.h; sourceTree = "<group>"; };
+		E4C6BC741AD9B5FD005CB712 /* FMDataBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDataBuilder.m; sourceTree = "<group>"; };
+		E4C6BC761AD9B60C005CB712 /* FMEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMEmail.h; sourceTree = "<group>"; };
+		E4C6BC771AD9B60C005CB712 /* FMEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMEmail.m; sourceTree = "<group>"; };
+		E4C6BC791AD9BCD6005CB712 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = FireMaiL/GooglePlus.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,12 +123,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E4170C741AD9A1CF009C8BE8 /* Data Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				E4170C751AD9A1EA009C8BE8 /* FMUser.h */,
+				E4170C761AD9A1EA009C8BE8 /* FMUser.m */,
+				E4C6BC701AD9B5E8005CB712 /* FMCommunicator.h */,
+				E4C6BC711AD9B5E8005CB712 /* FMCommunicator.m */,
+				E4C6BC731AD9B5FD005CB712 /* FMDataBuilder.h */,
+				E4C6BC741AD9B5FD005CB712 /* FMDataBuilder.m */,
+				E4C6BC761AD9B60C005CB712 /* FMEmail.h */,
+				E4C6BC771AD9B60C005CB712 /* FMEmail.m */,
+			);
+			name = "Data Handlers";
+			sourceTree = "<group>";
+		};
 		E4AC97771AD9978E00E923C3 = {
 			isa = PBXGroup;
 			children = (
 				E4AC97821AD9978E00E923C3 /* FireMaiL */,
 				E4AC979C1AD9978E00E923C3 /* FireMaiLTests */,
 				E4AC97811AD9978E00E923C3 /* Products */,
+				E4C6BC791AD9BCD6005CB712 /* GooglePlus.bundle */,
 				E4AC97BF1AD99ADF00E923C3 /* GoogleOpenSource.framework */,
 				E4AC97C01AD99ADF00E923C3 /* GooglePlus.framework */,
 				E4AC97BD1AD99A6C00E923C3 /* UIKit.framework */,
@@ -143,6 +173,7 @@
 		E4AC97821AD9978E00E923C3 /* FireMaiL */ = {
 			isa = PBXGroup;
 			children = (
+				E4170C741AD9A1CF009C8BE8 /* Data Handlers */,
 				E4AC97C31AD99B4C00E923C3 /* FMConstants.h */,
 				E4AC97C41AD99BB500E923C3 /* FMLoginController.h */,
 				E4AC97C51AD99BB500E923C3 /* FMLoginController.m */,
@@ -270,6 +301,7 @@
 			files = (
 				E4AC978F1AD9978E00E923C3 /* Main.storyboard in Resources */,
 				E4AC97941AD9978E00E923C3 /* LaunchScreen.xib in Resources */,
+				E4C6BC7A1AD9BCD6005CB712 /* GooglePlus.bundle in Resources */,
 				E4AC97911AD9978E00E923C3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,9 +323,13 @@
 				E4AC97C91AD99CB000E923C3 /* FMMainViewController.m in Sources */,
 				E4AC978C1AD9978E00E923C3 /* ViewController.m in Sources */,
 				E4AC97891AD9978E00E923C3 /* AppDelegate.m in Sources */,
+				E4C6BC751AD9B5FD005CB712 /* FMDataBuilder.m in Sources */,
 				E4AC97C61AD99BB500E923C3 /* FMLoginController.m in Sources */,
 				E4AC97861AD9978E00E923C3 /* main.m in Sources */,
 				E4AC97CC1AD99CC700E923C3 /* FMMailCard.m in Sources */,
+				E4C6BC781AD9B60C005CB712 /* FMEmail.m in Sources */,
+				E4170C771AD9A1EA009C8BE8 /* FMUser.m in Sources */,
+				E4C6BC721AD9B5E8005CB712 /* FMCommunicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +536,7 @@
 				E4AC97A51AD9978E00E923C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E4AC97A61AD9978E00E923C3 /* Build configuration list for PBXNativeTarget "FireMaiLTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +545,7 @@
 				E4AC97A81AD9978E00E923C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

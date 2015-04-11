@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GooglePlus/GooglePlus.h>
 
 @interface FMMailCard : UIView
+
+@property (nonatomic, strong) GPPSignInButton* signInButton;
 
 @end
