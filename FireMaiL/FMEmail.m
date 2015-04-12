@@ -10,9 +10,10 @@
 
 @implementation FMEmail
 
-- (instancetype)initWithTitle:(NSString*)title andBody:(NSString*)body{
+- (instancetype)initWithTitle:(NSString*)title andBody:(NSString*)body andSender:(NSString*)sender{
     self.title = title;
     self.body = body;
+    self.sender = sender;
 
     return self;
 }

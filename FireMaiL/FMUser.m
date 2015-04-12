@@ -16,11 +16,13 @@
     
     self.userEmail = [[GPPSignIn sharedInstance] userEmail];
     
+    self.userID = [[GPPSignIn sharedInstance] userID];
+    
     self.netID = [NSString stringWithFormat:@""];
     
     self.accessToken = [[[GPPSignIn sharedInstance] authentication] accessToken];
     
-    NSLog(@"successful nyu login: \n\t email:%@ \n\t user access token: %@", self.userEmail, self.accessToken);
+    NSLog(@"successful nyu login: \n\t email:%@ \n\t user access token: %@ \n\t user ID: %@", self.userEmail, self.accessToken, self.userID);
     
     return self;
 }

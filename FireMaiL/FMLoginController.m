@@ -10,6 +10,7 @@
 #import <GooglePlus/GooglePlus.h>
 #import <GoogleOpenSource/GoogleOpenSource.h>
 #import "FMConstants.h"
+#import "FMCommunicator.h"
 #import "FMUser.h"
 
 
@@ -42,8 +43,10 @@
     signIn.clientID = kClientId;
     
     // Uncomment one of these two statements for the scope you chose in the previous step
-    signIn.scopes = @[ kGTLAuthScopePlusLogin ];  // "https://www.googleapis.com/auth/plus.login" scope
+    signIn.scopes = @[ kGTLAuthScopePlusLogin, @"https://mail.google.com/", @"https://www.googleapis.com/auth/gmail.readonly"];  // "https://www.googleapis.com/auth/plus.login" scope
     //signIn.scopes = @[ @"profile" ];            // "profile" scope
+    
+    [signIn.authentication setScope:@"https://mail.google.com/"];
     
     // Optional: declare signIn.actions, see "app activities"
     signIn.delegate = self;
@@ -107,6 +110,11 @@
         NSLog(@"got the requisite information: %@, and %@", capture, accessToken);
         
         mainUserObject = [[FMUser alloc] initWithGoogle];
+        
+        FMCommunicator* comm = [[FMCommunicator alloc] initWithManager];
+        
+        [comm grabEmailForUser:mainUserObject];
+        
     }
     
     

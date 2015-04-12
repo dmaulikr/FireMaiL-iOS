@@ -8,6 +8,25 @@
 
 #import "FMMainViewController.h"
 
-@implementation FMMainViewController
+@implementation FMMainViewController{
+    NSMutableArray* emailObjects;
+}
+
+- (instancetype)initWithEmails:(NSMutableArray*)emails{
+    
+    
+    
+    return self;
+}
+
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    
+    
+    
+    
+}
+
+
 
 @end

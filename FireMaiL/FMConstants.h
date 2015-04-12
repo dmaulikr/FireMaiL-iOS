@@ -11,4 +11,8 @@
 
 #define kClientId @"1068316603287-sc9j7kusbnhldhjpki0ri3aedbm49s24.apps.googleusercontent.com"
 
+
+#define kAccessKey @"AIzaSyCoN4teFvPoOc7IrxSF0eQfCbTAZy7z3ts"
+
+
 #endif
