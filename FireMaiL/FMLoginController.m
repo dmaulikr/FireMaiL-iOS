@@ -156,7 +156,9 @@
 
 - (void)gotEmailForUser:(NSMutableArray *)arrayOfEmailObjects{
     
-    NSLog(@"entering delegate 1 for method calls");
+    
+    NSLog(@"checking presence of email objects: %@", arrayOfEmailObjects);
+    
     
     if (isAppLaunch == YES) { // done to provision for email handling afterwards.
         NSLog(@"launch is go");
