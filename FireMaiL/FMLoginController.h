@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <GooglePlus/GooglePlus.h>
 #import <GoogleOpenSource/GoogleOpenSource.h>
+#import "FMCommunicator.h"
 
-@interface FMLoginController : UIViewController <GPPSignInDelegate>
+@interface FMLoginController : UIViewController <GPPSignInDelegate, FMCommunicatorDelegate>
 
 @property (retain, nonatomic) GPPSignInButton* signInButton;
+
 
 @end

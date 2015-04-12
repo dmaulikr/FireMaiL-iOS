@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FMCommunicator.h"
 
-@interface FMMainViewController : UIViewController
+@interface FMMainViewController : UIViewController <FMCommunicatorDelegate>
+
+- (instancetype)initWithEmails:(NSMutableArray*)emails;
+
 
 @end

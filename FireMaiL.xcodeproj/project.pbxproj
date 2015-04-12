@@ -45,6 +45,9 @@
 		E4C4A8491ADA135300764EEC /* dump3 in Resources */ = {isa = PBXBuildFile; fileRef = E4C4A8481ADA135300764EEC /* dump3 */; };
 		E4C4A84B1ADA157200764EEC /* tempdump in Resources */ = {isa = PBXBuildFile; fileRef = E4C4A84A1ADA157200764EEC /* tempdump */; };
 		E4C4A84D1ADA17CF00764EEC /* tempdump2 in Resources */ = {isa = PBXBuildFile; fileRef = E4C4A84C1ADA17CF00764EEC /* tempdump2 */; };
+		E4C4A84F1ADA68A500764EEC /* m.png in Resources */ = {isa = PBXBuildFile; fileRef = E4C4A84E1ADA68A500764EEC /* m.png */; };
+		E4C4A8511ADA7B7F00764EEC /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = E4C4A8501ADA7B7F00764EEC /* back.png */; };
+		E4C4A8531ADA7C0800764EEC /* ok.png in Resources */ = {isa = PBXBuildFile; fileRef = E4C4A8521ADA7C0800764EEC /* ok.png */; };
 		E4C6BC721AD9B5E8005CB712 /* FMCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C6BC711AD9B5E8005CB712 /* FMCommunicator.m */; };
 		E4C6BC751AD9B5FD005CB712 /* FMDataBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C6BC741AD9B5FD005CB712 /* FMDataBuilder.m */; };
 		E4C6BC781AD9B60C005CB712 /* FMEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C6BC771AD9B60C005CB712 /* FMEmail.m */; };
@@ -121,6 +124,9 @@
 		E4C4A8481ADA135300764EEC /* dump3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dump3; sourceTree = "<group>"; };
 		E4C4A84A1ADA157200764EEC /* tempdump */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tempdump; sourceTree = "<group>"; };
 		E4C4A84C1ADA17CF00764EEC /* tempdump2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tempdump2; sourceTree = "<group>"; };
+		E4C4A84E1ADA68A500764EEC /* m.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = m.png; sourceTree = "<group>"; };
+		E4C4A8501ADA7B7F00764EEC /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		E4C4A8521ADA7C0800764EEC /* ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok.png; sourceTree = "<group>"; };
 		E4C6BC701AD9B5E8005CB712 /* FMCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMCommunicator.h; sourceTree = "<group>"; };
 		E4C6BC711AD9B5E8005CB712 /* FMCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMCommunicator.m; sourceTree = "<group>"; };
 		E4C6BC731AD9B5FD005CB712 /* FMDataBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDataBuilder.h; sourceTree = "<group>"; };
@@ -207,6 +213,9 @@
 		E4AC97771AD9978E00E923C3 = {
 			isa = PBXGroup;
 			children = (
+				E4C4A84E1ADA68A500764EEC /* m.png */,
+				E4C4A8501ADA7B7F00764EEC /* back.png */,
+				E4C4A8521ADA7C0800764EEC /* ok.png */,
 				E4AC97821AD9978E00E923C3 /* FireMaiL */,
 				E4AC979C1AD9978E00E923C3 /* FireMaiLTests */,
 				E4AC97811AD9978E00E923C3 /* Products */,
@@ -371,13 +380,16 @@
 			files = (
 				E4C4A8471ADA125700764EEC /* dump2.json in Resources */,
 				E4AC978F1AD9978E00E923C3 /* Main.storyboard in Resources */,
+				E4C4A8531ADA7C0800764EEC /* ok.png in Resources */,
 				E4AC97941AD9978E00E923C3 /* LaunchScreen.xib in Resources */,
+				E4C4A8511ADA7B7F00764EEC /* back.png in Resources */,
 				E4C4A8491ADA135300764EEC /* dump3 in Resources */,
 				E4C4A84B1ADA157200764EEC /* tempdump in Resources */,
 				E4C6BC7A1AD9BCD6005CB712 /* GooglePlus.bundle in Resources */,
 				E4C4A8451AD9F62400764EEC /* dump.json in Resources */,
 				E4AC97911AD9978E00E923C3 /* Images.xcassets in Resources */,
 				E4C4A84D1ADA17CF00764EEC /* tempdump2 in Resources */,
+				E4C4A84F1ADA68A500764EEC /* m.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

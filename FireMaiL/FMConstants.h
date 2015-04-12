@@ -14,5 +14,6 @@
 
 #define kAccessKey @"AIzaSyCoN4teFvPoOc7IrxSF0eQfCbTAZy7z3ts"
 
+#define kFMClientSecret @"5qu1rtl3Squ4d"
 
 #endif

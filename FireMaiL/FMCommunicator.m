@@ -26,7 +26,7 @@
 
 - (void)grabEmailForUser:(FMUser*)user{
     
-    NSString* url= [NSString stringWithFormat:@"https://www.googleapis.com/gmail/v1/users/%@/messages?labelIds=IMPORTANT&labelIds=UNREAD&access_token=%@", user.userID, user.accessToken];
+    NSString* url= [NSString stringWithFormat:@"https://www.googleapis.com/gmail/v1/users/%@/messages?labelIds=INBOX&labelIds=UNREAD&maxResults=50&access_token=%@", user.userID, user.accessToken];
     
     NSLog(@"attempting to fetch message list for user with URL: %@", url);
     
@@ -88,6 +88,7 @@
             if (![body isEqualToString:@""]) {
                 NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:body options:0];
                 NSString *decodedString = [[NSString alloc] initWithData:decodedData encoding:NSUTF8StringEncoding];
+                body = decodedString;
                 NSLog(@"decoded email body for individual resoponse: %@", decodedString);
                 
                 NSLog(@"body for key: %@", body);
@@ -99,6 +100,8 @@
             }
 
         }
+        
+        
         [self.delegate gotEmailForUser:emailArray];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <GooglePlus/GooglePlus.h>
+#import "FMEmail.h"
+
+
 
 @interface FMMailCard : UIView
 
 @property (nonatomic, strong) GPPSignInButton* signInButton;
+
+- (instancetype)initWithMail:(FMEmail*)email;
+- (void)revertFrame;
 
 @end
