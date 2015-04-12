@@ -11,12 +11,18 @@
 #import "FMEmail.h"
 
 
-
 @interface FMMailCard : UIView
 
 @property (nonatomic, strong) GPPSignInButton* signInButton;
+@property (nonatomic) CGFloat rotationAngle;
+@property (nonatomic, strong) NSString* eventState;
+
+
 
 - (instancetype)initWithMail:(FMEmail*)email;
-- (void)revertFrame;
+- (void)revertFrameTo:(CGRect)frame;
+- (void)setEventType:(NSString*)eventType;
+- (void)sendConfirm;
+
 
 @end

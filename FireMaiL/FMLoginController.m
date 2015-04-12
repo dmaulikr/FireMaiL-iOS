@@ -22,6 +22,7 @@
     CGRect screen;
     UIImageView* logo;
     UILabel* welcomeLogin;
+    UILabel* loading;
     
     NSString* capture;
     NSString* accessToken;
@@ -71,6 +72,13 @@
     [welcomeLogin setAlpha:0.0];
     [self.view addSubview:welcomeLogin];
     
+    loading = [[UILabel alloc] initWithFrame:CGRectMake(0, _signInButton.frame.origin.y-200, screen.size.width, 80)];
+    [loading setNumberOfLines:2];
+    [loading setTextAlignment:NSTextAlignmentCenter];
+    [loading setText:@"loading your email \n Please Wait"];
+    [loading setAlpha:0.0];
+    [self.view addSubview:loading];
+    
     logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"m.png"]];
     [logo setFrame:CGRectMake(screen.size.width/2-90, welcomeLogin.frame.origin.y-85, 180, 110)];
     [logo setAlpha:0.0];
@@ -113,12 +121,27 @@
         //handle the problem
         NSLog(@"looks liek there was a problem: %@", error);
     } else {
+        [UIView setAnimationsEnabled:YES];
+        [UIView animateWithDuration:0.4 animations:^{
+            [logo setAlpha:0.0];
+            [welcomeLogin setAlpha:0.0];
+            [_signInButton setAlpha:0.0];
+            [loading setAlpha:1.0];
+        } completion:^(BOOL finished) {
+            //
+        }];
+        
+        
         capture = [[GPPSignIn sharedInstance] userID];
         accessToken = [[[GPPSignIn sharedInstance] authentication] accessToken];
         
-        NSString* temp = [[[GPPSignIn sharedInstance] authentication] authorizationTokenKey];
+//        [[[GPPSignIn sharedInstance] authentication] tokenURL]
         
-        NSLog(@"got the requisite information: %@, and %@", capture, accessToken);
+        NSString* temp = [[[GPPSignIn sharedInstance] authentication] code];
+        
+        NSLog(@"requisite information does include auth token: %@", temp);
+        
+        NSLog(@"got the requisite information: %@, and %@, and %@", capture, accessToken, [[[GPPSignIn sharedInstance] authentication] refreshToken]);
         
         mainUserObject = [[FMUser alloc] initWithGoogle];
         
@@ -126,7 +149,6 @@
         comm.delegate = self;
         
         [comm grabEmailForUser:mainUserObject];
-        
     }
     
     

@@ -8,12 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-//NS_ENUM(NSInteger, kEventType){
-//    kEventTypeMeeting,
-//    kEventTypeReminder,
-//    kEventTypeShipment
-//};
-
 @protocol FMEmailDelegate <NSObject>
 
 - (NSInteger)foundEventForDetect:(NSInteger)kEventTypeHandler;
@@ -25,9 +19,10 @@
 @property (strong, nonatomic) NSString* title;
 @property (strong, nonatomic) NSString* body;
 @property (strong, nonatomic) NSString* sender;
+@property (strong, nonatomic) NSString* summary;
 
 - (void)smartDetect;
 
-- (instancetype)initWithTitle:(NSString*)title andBody:(NSString*)body andSender:(NSString*)sender;
+- (instancetype)initWithTitle:(NSString*)title andBody:(NSString*)body andSender:(NSString*)sender andSummary:(NSString*)summary;
 
 @end

@@ -13,13 +13,19 @@
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
+
 @implementation FMMailCard{
     FMEmail* mailObject;
     CGRect screen;
-    CGRect* originalFrame;
+    CGRect originalFrame;
     
     UITextView* title;
     UITextView* body;
+    
+    UITapGestureRecognizer* tap;
+    
+    BOOL tapped;
+    
 }
 
 - (instancetype)initWithMail:(FMEmail*)email{
@@ -27,6 +33,10 @@
     self = [super initWithFrame:screen];
 
     [self setFrame:screen];
+    
+    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(amTap)];
+    [self addGestureRecognizer:tap];
+    tapped = NO;
     
     self.layer.cornerRadius = 10.0f;
     [self setClipsToBounds:NO];
@@ -59,12 +69,64 @@
     [rounded addSubview:body];
     
     [self setTransform:CGAffineTransformMakeScale(.85, .85)];
+    
+    originalFrame = self.frame;
     return self;
 }
 
-- (void)revertFrame{
-    [self setFrame:screen];
-    [self setTransform:CGAffineTransformMakeScale(.85, .85)];
+- (void)revertFrameTo:(CGRect)frame{
+    [UIView animateWithDuration:0.2 animations:^{
+        [self setFrame:frame];
+        [self setTransform:CGAffineTransformMakeScale(.85, .85)];
+        if (_rotationAngle > 0) {
+//            self.transform = CGAffineTransformRotate(self.transform, -_rotationAngle);
+        }
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.2 animations:^{
+            [self setFrame:frame];
+        } completion:^(BOOL finished) {
+            NSLog(@"please work...");
+        }];
+        NSLog(@"que pasa???");
+    }];
+}
+
+- (void)setEventType:(NSString*)eventType{
+    _eventState = eventType;
+}
+
+- (void)sendConfirm{
+    NSLog(@"performing action: %@", _eventState);
+    NSLog(@"proof of concept limit break. -- at this point the app sends a request to the gmail server to either mark as read, or delete an email, open a controller to reply to the email, or create an event for the email.");
+}
+
+- (void)amTap{
+    NSLog(@"detected tap on view!");
+    if (tapped == NO) {
+        tapped = YES;
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+
+        [UIView animateWithDuration:0.4 animations:^{
+            //
+            [self setTransform:CGAffineTransformMakeScale(1, 1)];
+//            [self setFrame:screen];
+
+        } completion:^(BOOL finished) {
+            //
+        }];
+    } else if (tapped == YES){
+        tapped = NO;
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+        [UIView animateWithDuration:0.4 animations:^{
+            //
+//            [self setFrame:originalFrame];
+            [self setTransform:CGAffineTransformMakeScale(.85, .85)];
+        } completion:^(BOOL finished) {
+            //
+        }];
+    }
 }
 
 - (void)animateOutWithType:(NSUInteger)type{

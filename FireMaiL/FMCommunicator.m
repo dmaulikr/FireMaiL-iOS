@@ -94,8 +94,22 @@
                 NSLog(@"body for key: %@", body);
             }
             
+            NSString* insert = [NSString stringWithFormat:@"https://dregsweg.herokuapp.com/api/v1/shorten?title=%@&body=%@", title, body];
+            
+            NSURL* requestURL2 = [NSURL URLWithString:insert];
+            NSURLRequest* request2 = [NSURLRequest requestWithURL:requestURL2];
+            NSURLResponse* resp2 = nil;
+            NSError* error2 = nil;
+            
+            NSData* shortResponse = [NSURLConnection sendSynchronousRequest:request2 returningResponse:&resp2 error:&error2];
+            
+            NSLog(@"check: %@", shortResponse);
+            
+//            NSMutableDictionary* response2 = [NSJSONSerialization JSONObjectWithData:[NSURLConnection sendSynchronousRequest:request2 returningResponse:&resp2 error:&error2] options:NSJSONReadingAllowFragments error:nil];
+
+            
             if (![body isEqualToString:@""]) {
-                FMEmail* email = [[FMEmail alloc] initWithTitle:title andBody:body andSender:sender];
+                FMEmail* email = [[FMEmail alloc] initWithTitle:title andBody:body andSender:sender andSummary:nil];
                 [emailArray addObject:email];
             }
 
