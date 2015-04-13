@@ -71,6 +71,7 @@
     [self setTransform:CGAffineTransformMakeScale(.85, .85)];
     
     originalFrame = self.frame;
+    self.layer.shouldRasterize = YES;
     return self;
 }
 

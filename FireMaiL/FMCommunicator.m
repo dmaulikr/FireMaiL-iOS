@@ -27,7 +27,7 @@
 
 - (void)grabEmailForUser:(FMUser*)user{
     
-    NSString* url= [NSString stringWithFormat:@"https://www.googleapis.com/gmail/v1/users/%@/messages?labelIds=INBOX&labelIds=UNREAD&maxResults=25&access_token=%@", user.userID, user.accessToken];
+    NSString* url= [NSString stringWithFormat:@"https://www.googleapis.com/gmail/v1/users/%@/messages?labelIds=INBOX&labelIds=UNREAD&maxResults=100&access_token=%@", user.userID, user.accessToken];
     
     NSLog(@"attempting to fetch message list for user with URL: %@", url);
     
@@ -42,7 +42,9 @@
             NSString* urlString = [NSString stringWithFormat:@"https://www.googleapis.com/gmail/v1/users/%@/messages/%@?&access_token=%@", user.userID, [[raw objectAtIndex:i] objectForKey:@"id"], user.accessToken];
             [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 FMEmail* email = [self buildEmailFromData:responseObject];
-                [emailObjects addObject:email];
+                if (![email.body isEqualToString:@""]) {
+                    [emailObjects addObject:email];
+                }
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"error: %@", error);
             }];
@@ -90,7 +92,7 @@
         //do something
         NSLog(@"discovered form one");
         
-        body = [[[[[[[data objectForKey:@"payload"] objectForKey:@"parts"] objectAtIndex:0] objectForKey:@"parts"] objectAtIndex:0] objectForKey:@"body"] objectForKey:@"data"];
+        body = [[[[[[[data objectForKey:@"payload"] objectForKey:@"parts"] objectAtIndex:0] objectForKey:@"parts"] objectAtIndex:1] objectForKey:@"body"] objectForKey:@"data"];
     } else if ([[[data objectForKey:@"payload"] objectForKey:@"mimeType"] isEqualToString:@"multipart/alternative"]) {
         NSLog(@"discovered form two");
         
@@ -102,28 +104,16 @@
     
     if (![body isEqualToString:@""]) {
         NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:body options:0];
-        NSString *decodedString = [[NSString alloc] initWithData:decodedData encoding:NSUTF8StringEncoding];
+        NSString *decodedString = [[NSString alloc] initWithData:decodedData encoding:NSISOLatin1StringEncoding];
         body = decodedString;
         NSLog(@"decoded email body for individual resoponse: %@", decodedString);
         
         NSLog(@"body for key: %@", body);
     }
     
-    NSString* insert = [NSString stringWithFormat:@"https://dregsweg.herokuapp.com/api/v1/shorten?title=%@&body=%@", title, body];
     
-    NSURL* requestURL2 = [NSURL URLWithString:insert];
-    NSURLRequest* request2 = [NSURLRequest requestWithURL:requestURL2];
-    NSURLResponse* resp2 = nil;
-    NSError* error2 = nil;
+    FMEmail* email = [[FMEmail alloc] initWithTitle:title andBody:body andSender:sender andSummary:nil];
     
-    NSData* shortResponse = [NSURLConnection sendSynchronousRequest:request2 returningResponse:&resp2 error:&error2];
-    
-    NSLog(@"check: %@", shortResponse);
-    
-    //            NSMutableDictionary* response2 = [NSJSONSerialization JSONObjectWithData:[NSURLConnection sendSynchronousRequest:request2 returningResponse:&resp2 error:&error2] options:NSJSONReadingAllowFragments error:nil];
-    
-        FMEmail* email = [[FMEmail alloc] initWithTitle:title andBody:body andSender:sender andSummary:nil];
-
 
     return email;
 }
